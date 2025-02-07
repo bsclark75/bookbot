@@ -18,10 +18,14 @@ def character_count(text):
 def main():
     with open("books/frankenstein.txt") as f:
         file_contents = f.read()
-        print(file_contents)
+        print("--- Begin report of books/frankenstein.txt ---")
         wc = word_count(file_contents)
-        print(wc)
+        print(f"{wc} words found in the document")
         cc = character_count(file_contents)
-        print(cc)
+        #print(type(cc))
+        for k,v in cc.items():
+            print(f"The '{k}' character was found {v} times")
+        print("--- End of report ---")
+        
 
 main()
