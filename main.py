@@ -1,3 +1,5 @@
+import string
+
 def word_count(text):
     count = 0
     words = text.split()
@@ -16,6 +18,7 @@ def character_count(text):
     return count_dict
 
 def main():
+    alphabet = list(string.ascii_lowercase)
     with open("books/frankenstein.txt") as f:
         file_contents = f.read()
         print("--- Begin report of books/frankenstein.txt ---")
@@ -24,7 +27,8 @@ def main():
         cc = character_count(file_contents)
         #print(type(cc))
         for k,v in cc.items():
-            print(f"The '{k}' character was found {v} times")
+            if k in alphabet:
+                print(f"The '{k}' character was found {v} times")
         print("--- End of report ---")
         
 
